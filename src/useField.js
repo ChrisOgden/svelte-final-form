@@ -42,6 +42,7 @@ const useField = (
     // initialValue,
     multiple,
     parse = defaultParse,
+    required,
     subscription = all,
     type,
     // validateFields,
@@ -84,6 +85,10 @@ const useField = (
       }
       if (type !== undefined) {
         input.type = type
+      }
+
+      if (required) {
+        input.required = required
       }
 
       const handlers = {
