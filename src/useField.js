@@ -42,6 +42,9 @@ const useField = (
     // initialValue,
     multiple,
     parse = defaultParse,
+    required,
+    onBlur,
+    onChange,
     subscription = all,
     type,
     // validateFields,
@@ -120,15 +123,24 @@ const useField = (
       if (type !== undefined) {
         input.type = type
       }
+      if (required) {
+        input.required = required
+      }
 
       const handlers = {
-        onBlur: blur,
+        onBlur: (onBlur) ? (event) => {
+          blur(event)
+          onBlur(event)
+        } : blur,
         onChange: (event) => {
           // eslint-disable-next-line no-shadow
           const value = event && event.target
             ? getValue(event, state.value, _value)
             : event
           change(parse(value, name))
+          if (onChange) {
+            onChange(parse(value, name))
+          }
         },
         onFocus: focus,
       }
