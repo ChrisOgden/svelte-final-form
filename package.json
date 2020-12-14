@@ -1,6 +1,6 @@
 {
-  "name": "svelte-final-form",
-  "version": "1.1.5",
+  "name": "@chrisogden/svelte-final-form",
+  "version": "1.1.6",
   "description": "🏁 High performance subscription-based form state management for Svelte",
   "svelte": "src/index.js",
   "module": "dist/index.mjs",
@@ -12,7 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jetrockets/svelte-final-form.git"
+    "url": "git+https://github.com/chrisogden/svelte-final-form.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
     "svelte-final-form",
